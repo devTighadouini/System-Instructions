@@ -5,5 +5,14 @@ public abstract class ExpirationInstruction extends Action {
 
     public ExpirationInstruction(String nameAction, Expiration expiration) {
         super(nameAction);
+        this.expiration = expiration;
+    }
+
+    public Expiration getExpiration() {
+        return expiration;
+    }
+
+    public void setExpiration(Expiration expiration) {
+        this.expiration = expiration;
     }
 }
