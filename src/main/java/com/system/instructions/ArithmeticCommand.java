@@ -3,7 +3,7 @@ package com.system.instructions;
 import com.system.registers.Register;
 import java.util.Optional;
 
-public abstract class ArithmeticCommand extends ExpirationInstruction {
+public abstract class ArithmeticCommand extends ExpirationAction {
 
     private String operationSymbol;
     private Register source;

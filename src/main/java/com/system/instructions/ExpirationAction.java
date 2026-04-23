@@ -1,9 +1,9 @@
 package com.system.instructions;
 
-public abstract class ExpirationInstruction extends Action {
+public abstract class ExpirationAction extends Action {
     private Expiration expiration;
 
-    public ExpirationInstruction(String nameAction, Expiration expiration) {
+    public ExpirationAction(String nameAction, Expiration expiration) {
         super(nameAction);
         this.expiration = expiration;
     }
