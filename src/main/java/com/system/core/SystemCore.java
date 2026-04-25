@@ -16,7 +16,7 @@ public class SystemCore {
 
     public SystemCore() {
         this.pendingInstruction = new ArrayList<>();
-        this.managerRegisters = new ManagerRegisters();
+        this.managerRegisters = ManagerRegisters.getInstance();
     }
 
     public void addInstruction(Action action) {
