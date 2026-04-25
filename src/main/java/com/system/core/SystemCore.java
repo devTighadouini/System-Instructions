@@ -25,13 +25,11 @@ public class SystemCore {
     }
 
 
-    public void regiterInformation(List<Action> executed, Action aux) {
+    public void registerInformation(List<Action> executed, Action aux) {
         aux.execute();
-        Log.getInstance().add("Ejecutada instrucción: " + aux.getNameAction());
+        Log.getInstance().add(aux.toLogString());
 
         executed.add(aux);
-
-
     }
     public void executeAll() {
         currentCycle++;
@@ -41,14 +39,10 @@ public class SystemCore {
         for (Action action : pendingInstruction) {
             if (action instanceof ExpirationAction exp) {
                 if (currentCycle > exp.getExpiration().getTimeCycle()) {
-                    action.execute();
-                    executed.add(action);
+                    registerInformation(executed, action);
                 }
-
             } else {
-                action.execute();
-                executed.add(action);
-
+                registerInformation(executed, action);
             }
         }
 
