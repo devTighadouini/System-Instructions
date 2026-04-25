@@ -14,4 +14,10 @@ public class DelCommand extends RegisterCommand {
     public void execute() {
         getSource().setValue(null);
     }
+
+
+    @Override
+    public String toLogString() {
+        return "· " + this.getNameAction() + " " + getSource().getLabelName();
+    }
 }

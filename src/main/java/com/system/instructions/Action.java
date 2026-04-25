@@ -20,4 +20,6 @@ public abstract class Action {
 
     // Patrón command
     public abstract void execute();
+    public abstract String toLogString();
+
 }

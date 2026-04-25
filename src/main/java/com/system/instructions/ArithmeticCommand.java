@@ -49,4 +49,16 @@ public abstract class ArithmeticCommand extends ExpirationAction {
     public void setOptionalDestination(Optional<Register> optionalDestination) {
         this.optionalDestination = optionalDestination;
     }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toLogString() {
+        //ADD R1 + R2 -> R2
+        return "· " + this.getNameAction() + " " + this.source.getLabelName() + " " + this.getOperationSymbol() + " "
+                     + this.target.getLabelName() + " -> " + ((this.optionalDestination.isPresent()) ? this.getOptionalDestination().get().getLabelName()
+                                                                                                     : this.target.getLabelName());
+    }
 }

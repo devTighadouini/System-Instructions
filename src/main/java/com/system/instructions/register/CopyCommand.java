@@ -5,6 +5,7 @@ import com.system.instructions.RegisterCommand;
 import com.system.registers.Register;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CopyCommand extends RegisterCommand {
     private List<Register> target;
@@ -25,5 +26,13 @@ public class CopyCommand extends RegisterCommand {
     @Override
     public void execute() {
         getTarget().forEach(n -> n.setValue(getSource().getValue()));
+    }
+
+    @Override
+    public String toLogString() {
+        return "· " + this.getNameAction() + " ->" + this.target.stream().map(Register::getLabelName)
+                                                                         .collect(
+                                                                                 Collectors.joining(", ", "[ ", " ]")
+                                                                         );
     }
 }

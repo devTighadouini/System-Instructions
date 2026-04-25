@@ -26,4 +26,9 @@ public class MoveCommand extends RegisterCommand {
         getTarget().setValue(getSource().getValue());
         getSource().setValue(null);
     }
+
+    @Override
+    public String toLogString() {
+        return "· " + this.getNameAction() + " " + getSource().getLabelName() + " (" + getSource().getValue() + ") " + "->" + getTarget().getLabelName()  + " (" + getTarget().getValue() + ") ";
+    }
 }

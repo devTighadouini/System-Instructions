@@ -2,6 +2,7 @@ package com.system.core;
 
 import com.system.instructions.Action;
 import com.system.instructions.ExpirationAction;
+import com.system.log.Log;
 import com.system.registers.ManagerRegisters;
 
 import java.util.ArrayList;
@@ -23,6 +24,15 @@ public class SystemCore {
 
     }
 
+
+    public void regiterInformation(List<Action> executed, Action aux) {
+        aux.execute();
+        Log.getInstance().add("Ejecutada instrucción: " + aux.getNameAction());
+
+        executed.add(aux);
+
+
+    }
     public void executeAll() {
         currentCycle++;
 
@@ -34,9 +44,11 @@ public class SystemCore {
                     action.execute();
                     executed.add(action);
                 }
+
             } else {
                 action.execute();
                 executed.add(action);
+
             }
         }
 
