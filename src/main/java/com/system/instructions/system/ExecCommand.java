@@ -1,5 +1,6 @@
 package com.system.instructions.system;
 
+import com.system.core.SystemCore;
 import com.system.instructions.Action;
 
 public class ExecCommand extends Action {
@@ -10,7 +11,7 @@ public class ExecCommand extends Action {
 
     @Override
     public void execute() {
-
+        SystemCore.getInstance().executeAll();
     }
 
     @Override

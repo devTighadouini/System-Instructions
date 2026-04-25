@@ -12,6 +12,7 @@ public class SystemCore {
 
     private static SystemCore instance;
     private List<Action> pendingInstruction;
+
     private long currentCycle = 0;
 
     private SystemCore() {
