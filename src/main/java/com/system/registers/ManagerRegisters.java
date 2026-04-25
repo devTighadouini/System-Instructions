@@ -2,6 +2,7 @@ package com.system.registers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ManagerRegisters {
 
@@ -30,6 +31,13 @@ public class ManagerRegisters {
         }
 
         return result;
+    }
+
+    public String toLogString() {
+        return "[Registros -> " + registersList.stream().map(n -> n.getLabelName() + " = " + n.getValue())
+                                                        .collect(
+                                                                Collectors.joining(", ", "", "]")
+                                                        );
     }
 
 }

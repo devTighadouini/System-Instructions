@@ -31,9 +31,13 @@ public class SystemCore {
 
         executed.add(aux);
     }
+
+
     public void executeAll() {
         currentCycle++;
 
+        // Inicio del ciclo
+        Log.getInstance().add("[ Inicio - Ciclo " + currentCycle + " ]");
         List<Action> executed = new ArrayList<>();
 
         for (Action action : pendingInstruction) {
@@ -47,5 +51,8 @@ public class SystemCore {
         }
 
         pendingInstruction.removeAll(executed);
+
+        // Estado final
+        Log.getInstance().add(managerRegisters.toLogString());
     }
 }
