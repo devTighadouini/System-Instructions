@@ -1,7 +1,5 @@
 package com.system.registers;
 
-import com.system.log.Log;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,4 +49,18 @@ public class ManagerRegisters {
                                                         );
     }
 
+    public RegistersMemento saveMemento() {
+        return new RegistersMemento(
+                    getRegistersList().stream()
+                                      .map(Register::getValue)
+                                      .toList()
+                    );
+    }
+
+    public void restoreMemento(RegistersMemento restore) {
+        List<Integer> values = restore.values();
+        for (int i = 0; i < registersList.size(); i++) {
+            registersList.get(i).setValue(values.get(i));
+        }
+    }
 }
