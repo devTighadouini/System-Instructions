@@ -10,13 +10,20 @@ import java.util.List;
 
 public class SystemCore {
 
+    private static SystemCore instance;
     private List<Action> pendingInstruction;
-    private ManagerRegisters managerRegisters;
     private long currentCycle = 0;
 
-    public SystemCore() {
+    private SystemCore() {
         this.pendingInstruction = new ArrayList<>();
-        this.managerRegisters = ManagerRegisters.getInstance();
+    }
+
+    public static SystemCore getInstance() {
+        if (instance == null) {
+            instance = new SystemCore();
+        }
+
+        return instance;
     }
 
     public void addInstruction(Action action) {
@@ -53,6 +60,6 @@ public class SystemCore {
         pendingInstruction.removeAll(executed);
 
         // Estado final
-        Log.getInstance().add(managerRegisters.toLogString());
+        Log.getInstance().add(ManagerRegisters.getInstance().toLogString());
     }
 }
