@@ -1,15 +1,26 @@
 package com.system.registers;
 
+import com.system.log.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ManagerRegisters {
 
+    private static ManagerRegisters instance;
     private List<Register> registersList;
 
-    public ManagerRegisters() {
+    private ManagerRegisters() {
         this.registersList = generateListDefaultName();
+    }
+
+    public static ManagerRegisters getInstance() {
+        if (instance == null) {
+            instance = new ManagerRegisters();
+        }
+
+        return instance;
     }
 
     public List<Register> getRegistersList() {
