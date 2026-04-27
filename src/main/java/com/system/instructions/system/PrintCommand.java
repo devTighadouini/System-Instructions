@@ -17,6 +17,6 @@ public class PrintCommand extends Action {
 
     @Override
     public String toLogString() {
-        return "· " + this.getNameAction();
+        return this.getNameAction();
     }
 }

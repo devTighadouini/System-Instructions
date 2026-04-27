@@ -18,6 +18,6 @@ public class DelCommand extends RegisterCommand {
 
     @Override
     public String toLogString() {
-        return "· " + this.getNameAction() + " " + getSource().getLabelName();
+        return this.getNameAction() + " " + getSource().getLabelName();
     }
 }

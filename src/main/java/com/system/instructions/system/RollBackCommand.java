@@ -16,7 +16,7 @@ public class RollBackCommand extends Action {
 
     @Override
     public String toLogString() {
-        return "· [ " + this.getNameAction() + " ]";
+        return "[ " + this.getNameAction() + " ]";
     }
 }
 

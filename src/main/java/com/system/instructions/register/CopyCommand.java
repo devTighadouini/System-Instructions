@@ -30,7 +30,7 @@ public class CopyCommand extends RegisterCommand {
 
     @Override
     public String toLogString() {
-        return "· " + this.getNameAction() + " ->" + this.target.stream().map(Register::getLabelName)
+        return this.getNameAction() + " ->" + this.target.stream().map(Register::getLabelName)
                                                                          .collect(
                                                                                  Collectors.joining(", ", "[ ", " ]")
                                                                          );
