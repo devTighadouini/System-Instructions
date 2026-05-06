@@ -23,3 +23,93 @@ entrada de prueba
 [ Inicio - Ciclo 1 ]
 entrada de prueba
 [ Inicio - Ciclo 1 ]
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@2a7f1f10
+[ Inicio - Ciclo 1 ]
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@33065d67
+entrada de prueba
+[ Inicio - Ciclo 1 ]
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@740cae06
+[ Inicio - Ciclo 1 ]
+DEL R0
+[Registros -> java.util.stream.ReferencePipeline$3@27406a17
+[ROLLBACK] DEL R0
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@7ef82753
+entrada de prueba
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@1ca3b418
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@2d52216b
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@791f145a
+PRINT
+[Registros -> java.util.stream.ReferencePipeline$3@38cee291
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@268f106e
+[ Inicio - Ciclo 1 ]
+DEL R0
+[Registros -> java.util.stream.ReferencePipeline$3@70ed52de
+[ROLLBACK] DEL R0
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@4082ba93
+entrada de prueba
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@359df09a
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@43df23d3
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@6d60fe40
+[ROLLBACK] ADD R0  +  R1 -> R1
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@2d52216b
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@791f145a
+PRINT
+[Registros -> java.util.stream.ReferencePipeline$3@38cee291
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@268f106e
+[ Inicio - Ciclo 1 ]
+DEL R0
+[Registros -> java.util.stream.ReferencePipeline$3@70ed52de
+[ROLLBACK] DEL R0
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@4082ba93
+entrada de prueba
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@359df09a
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@43df23d3
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@6d60fe40
+[ROLLBACK] ADD R0  +  R1 -> R1
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@441772e
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@6aba2b86
+[ Inicio - Ciclo 1 ]
+DEL R0
+[Registros -> java.util.stream.ReferencePipeline$3@7ec7ffd3
+[ROLLBACK] DEL R0
+[ Inicio - Ciclo 1 ]
+[Registros -> java.util.stream.ReferencePipeline$3@6c64cb25
+entrada de prueba
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@5158b42f
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@595b007d
+[ Inicio - Ciclo 1 ]
+ADD R0  +  R1 -> R1
+[Registros -> java.util.stream.ReferencePipeline$3@72d1ad2e
+[ROLLBACK] ADD R0  +  R1 -> R1

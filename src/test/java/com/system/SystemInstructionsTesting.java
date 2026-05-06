@@ -18,7 +18,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Sistema de instrucciones de bajo nivel")
+@DisplayName("Sistema de instrucciones ")
 public class SystemInstructionsTesting {
 
     @BeforeEach
@@ -380,4 +380,68 @@ public class SystemInstructionsTesting {
                 parser.parse("INVALIDA R0")
         );
     }
+
+    // ==================== INSTRUCCIONES DEL SISTEMA ====================
+
+    @Test
+    @DisplayName("EXEC inmediato se ejecuta al añadirse al sistema")
+    void execEsInmediato() {
+        ManagerRegisters.getInstance().getRegister("R0").setValue(5);
+        ManagerRegisters.getInstance().getRegister("R1").setValue(3);
+
+        SystemCore core = SystemCore.getInstance();
+        core.addInstruction(new AddCommand(null,
+                ManagerRegisters.getInstance().getRegister("R0"),
+                ManagerRegisters.getInstance().getRegister("R1"),
+                Optional.empty()
+        ));
+
+        core.addInstruction(new ExecCommand());
+
+        assertEquals(8, ManagerRegisters.getInstance().getRegister("R1").getValue());
+    }
+
+    @Test
+    @DisplayName("UNDO inmediato elimina la última instrucción pendiente antes de EXEC")
+    void undoEsInmediato() {
+        ManagerRegisters.getInstance().getRegister("R0").setValue(5);
+        ManagerRegisters.getInstance().getRegister("R1").setValue(3);
+
+        SystemCore core = SystemCore.getInstance();
+        core.addInstruction(new AddCommand(null,
+                ManagerRegisters.getInstance().getRegister("R0"),
+                ManagerRegisters.getInstance().getRegister("R1"),
+                Optional.empty()
+        ));
+
+        // UNDO elimina el ADD antes de ejecutar
+        core.addInstruction(new UndoCommand());
+        core.addInstruction(new ExecCommand());
+
+        // R1 sigue siendo 3 porque el ADD fue eliminado
+        assertEquals(3, ManagerRegisters.getInstance().getRegister("R1").getValue());
+    }
+
+    @Test
+    @DisplayName("ROLLBACK inmediato devuelve el estado tras ejecutar")
+    void rollbackEsInmediato() {
+        ManagerRegisters.getInstance().getRegister("R0").setValue(10);
+        ManagerRegisters.getInstance().getRegister("R1").setValue(5);
+
+        SystemCore core = SystemCore.getInstance();
+        core.addInstruction(new AddCommand(null,
+                ManagerRegisters.getInstance().getRegister("R0"),
+                ManagerRegisters.getInstance().getRegister("R1"),
+                Optional.empty()
+        ));
+        core.addInstruction(new ExecCommand());
+
+        assertEquals(15, ManagerRegisters.getInstance().getRegister("R1").getValue());
+
+        // ROLLBACK devuelve el estado anterior
+        core.addInstruction(new RollBackCommand());
+
+        assertEquals(5, ManagerRegisters.getInstance().getRegister("R1").getValue());
+    }
+
 }

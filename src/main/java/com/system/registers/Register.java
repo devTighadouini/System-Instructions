@@ -18,7 +18,7 @@ public class Register {
         this.labelName = labelName;
     }
 
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
