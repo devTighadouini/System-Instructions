@@ -1,6 +1,8 @@
 package com.system.instructions;
 
 import com.system.registers.Register;
+
+import java.util.Objects;
 import java.util.Optional;
 
 public abstract class ArithmeticCommand extends ExpirationAction {
@@ -50,10 +52,6 @@ public abstract class ArithmeticCommand extends ExpirationAction {
         this.optionalDestination = optionalDestination;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String toLogString() {
         //ADD R1 + R2 -> R2
@@ -61,4 +59,10 @@ public abstract class ArithmeticCommand extends ExpirationAction {
                      + this.target.getLabelName() + " -> " + ((this.optionalDestination.isPresent()) ? this.getOptionalDestination().get().getLabelName()
                                                                                                      : this.target.getLabelName());
     }
+    protected void validateOperands() {
+        if (Objects.isNull(getSource().getValue()) || Objects.isNull(getTarget().getValue())) {
+            throw new IllegalArgumentException("ArithmeticCommand: los registros no pueden estar vacíos para operar.");
+        }
+    }
+
 }

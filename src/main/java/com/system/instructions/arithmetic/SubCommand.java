@@ -13,6 +13,7 @@ public class SubCommand extends ArithmeticCommand {
 
     @Override
     public void execute() {
+        validateOperands();
         getOptionalDestination().orElse(getTarget()).setValue(
                 Math.subtractExact(getSource().getValue(), getTarget().getValue())
         );

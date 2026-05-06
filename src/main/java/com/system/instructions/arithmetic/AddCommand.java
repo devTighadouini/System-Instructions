@@ -13,6 +13,7 @@ public class AddCommand extends ArithmeticCommand {
 
     @Override
     public void execute() {
+        validateOperands();
         getOptionalDestination().orElse(getTarget()).setValue(
                 Math.addExact(getSource().getValue(), getTarget().getValue())
         );

@@ -3,6 +3,7 @@ package com.system.parser;
 import com.system.instructions.Action;
 import com.system.instructions.Expiration;
 import com.system.instructions.arithmetic.*;
+import com.system.instructions.flag.*;
 import com.system.instructions.register.CopyCommand;
 import com.system.instructions.register.DelCommand;
 import com.system.instructions.register.MoveCommand;
@@ -67,19 +68,25 @@ public class ParserTranslatorFactory {
 
     public Action parse(String line) {
         List<String> result = new ArrayList<>(List.of(line.split(" ")));
-        int countParametersAction = result.size();
+        boolean hasIf = result.remove("IF");
 
-        return switch (result.getFirst()) {
-            case "ADD", "SUB", "MULT", "DIV", "MOD" -> parseArithmetic(result, result.getFirst());
+        Action action = switch (result.get(0)) {
+            case "ADD", "SUB", "MULT", "DIV", "MOD" -> parseArithmetic(result, result.get(0));
             case "MOVE" -> parseMove(result);
             case "DEL" -> parseDel(result);
             case "COPY" -> parseCopy(result);
+            case "PRINT" -> new PrintCommand();
             case "EXEC" -> new ExecCommand();
             case "UNDO" -> new UndoCommand();
-            case "PRINT" -> new PrintCommand();
             case "ROLLBACK" -> new RollBackCommand();
-            default -> throw new IllegalStateException("Valor desconocido: " + result.getFirst());
+            case "FLAG" -> new FlagCommand(Boolean.parseBoolean(result.get(1)), getExpiration(result).orElse(null));
+            case "NOT" -> new NotCommand("NOT", getExpiration(result).orElse(null));
+            case "AND" -> new AndCommand(Boolean.parseBoolean(result.get(1)), getExpiration(result).orElse(null));
+            case "OR" -> new OrCommand(Boolean.parseBoolean(result.get(1)), getExpiration(result).orElse(null));
+            default -> throw new IllegalArgumentException("Valor desconocida: " + result.get(0));
         };
+
+        return hasIf ? new IfDecorator(action) : action;
     }
 
     private boolean isNumber(String number) {

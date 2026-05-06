@@ -2,8 +2,9 @@ package com.system.instructions.system;
 
 import com.system.core.SystemCore;
 import com.system.instructions.Action;
+import com.system.instructions.Inmediate;
 
-public class UndoCommand extends Action {
+public class UndoCommand extends Action implements Inmediate {
 
     public UndoCommand() {
         super("UNDO");

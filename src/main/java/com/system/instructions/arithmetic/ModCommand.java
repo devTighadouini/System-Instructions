@@ -13,6 +13,7 @@ public class ModCommand extends ArithmeticCommand {
 
     @Override
     public void execute() {
+        validateOperands();
         if ( getTarget().getValue() == 0 ) throw new IllegalArgumentException("Modulo - Arithmetic: introduzca un divisor mayor a 0.");
         getOptionalDestination().orElse(getTarget()).setValue(getSource().getValue() % getTarget().getValue());
     }

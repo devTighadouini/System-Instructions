@@ -13,6 +13,7 @@ public class MultCommand extends ArithmeticCommand {
 
     @Override
     public void execute() {
+        validateOperands();
         getOptionalDestination().orElse(getTarget()).setValue(
                 Math.multiplyExact(getSource().getValue(), getTarget().getValue())
         );

@@ -2,6 +2,7 @@ package com.system.core;
 
 import com.system.instructions.Action;
 import com.system.instructions.ExpirationAction;
+import com.system.instructions.Inmediate;
 import com.system.instructions.system.RollBackCommand;
 import com.system.log.Log;
 import com.system.registers.ManagerRegisters;
@@ -36,11 +37,11 @@ public class SystemCore {
     }
 
     public void addInstruction(Action action) {
-        this.pendingInstruction.add(action);
-
+        if (action instanceof Inmediate) action.execute();
+        else this.pendingInstruction.add(action);
     }
 
-    public void registerInformation(List<Action> executed, Action aux) {
+    private void registerInformation(List<Action> executed, Action aux) {
         history.push(ManagerRegisters.getInstance().saveMemento());
         executedHistory.push(aux);
 
