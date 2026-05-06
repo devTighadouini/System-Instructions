@@ -60,7 +60,7 @@ public class SystemCore {
 
         for (Action action : pendingInstruction) {
             if (action instanceof ExpirationAction exp) {
-                if (currentCycle > exp.getExpiration().getTimeCycle()) {
+                if (exp.getExpiration() == null || currentCycle > exp.getExpiration().getTimeCycle()) {
                     registerInformation(executed, action);
                 }
             } else {

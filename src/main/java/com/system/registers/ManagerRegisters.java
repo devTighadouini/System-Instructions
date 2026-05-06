@@ -43,10 +43,7 @@ public class ManagerRegisters {
     }
 
     public String toLogString() {
-        return "[Registros -> " + registersList.stream().map(n -> n.getLabelName() + " = " + n.getValue())
-                                                        .collect(
-                                                                Collectors.joining(", ", "", "]")
-                                                        );
+        return "[Registros -> " + registersList.stream().map(n -> n.getLabelName() + " = " + String.valueOf(n.getValue()));
     }
 
     public RegistersMemento saveMemento() {
